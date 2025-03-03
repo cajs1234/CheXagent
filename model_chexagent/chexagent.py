@@ -184,13 +184,13 @@ class CheXagent(object):
         return response
         
   # Inside chexagent2.py (CheXagent class)
-def covid_vs_non_covid_classification(self, paths):
-    assert isinstance(paths, list)
+    def covid_vs_non_covid_classification(self, paths):
+        assert isinstance(paths, list)
     # Define a multi-choice prompt
-    prompt = (
-        "Classify the Xray provided into one of the following classes:\n"
-        "(a) COVID-19 pneumonia\n"
-        "(b) Non-COVID pneumonia"
+        prompt = (
+            "Classify the Xray provided into one of the following classes:\n"
+            "(a) COVID-19 pneumonia\n"
+            "(b) Non-COVID pneumonia"
     )
-    response = self.generate(paths, prompt)
-    return response
+        response = self.generate(paths, prompt)
+        return response

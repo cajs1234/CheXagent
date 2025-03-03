@@ -183,8 +183,14 @@ class CheXagent(object):
         response = self.generate([], prompt)
         return response
         
-    def covid_vs_non_covid_classification(self, paths):
-        assert isinstance(paths, list)
-        prompt = f'Given the CXR, classify it into COVID-19 pneumonia or non-COVID-19 pneumonia'
-        response = self.generate(paths, prompt)
-        return response
+  # Inside chexagent2.py (CheXagent class)
+def covid_vs_non_covid_classification(self, paths):
+    assert isinstance(paths, list)
+    # Define a multi-choice prompt
+    prompt = (
+        "Classify the Xray provided into one of the following classes:\n"
+        "(a) COVID-19 pneumonia\n"
+        "(b) Non-COVID pneumonia"
+    )
+    response = self.generate(paths, prompt)
+    return response

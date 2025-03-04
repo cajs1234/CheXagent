@@ -1,4 +1,4 @@
-import os
+nnimport os
 
 import requests
 import torch
@@ -187,15 +187,13 @@ class CheXagent(object):
     def covid_vs_non_covid_classification(self, paths):
         assert isinstance(paths, list)
         prompt = (
-            "Classify the Xray provided into one of the following classes:\n"
-            "(a) COVID-19 pneumonia\n"
-            "(b) Non-COVID pneumonia"
+            "Classify the following x ray image into one of the 2 classes, COVID-19 or non-COVID-19 pneumonia"
     )
         response = self.generate(paths, prompt)
         return response
 
     def medical_question(self, question):
         assert isinstance(question, str)
-        prompt = f'Summarize the following Findings: {question}'
+        prompt = f'Answer my question detailedly: {question}'
         response = self.generate([], prompt)
         return response

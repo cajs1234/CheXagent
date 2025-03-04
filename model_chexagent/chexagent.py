@@ -187,13 +187,13 @@ class CheXagent(object):
     def covid_vs_non_covid_classification(self, paths):
         assert isinstance(paths, list)
         prompt = (
-            "Classify the following x ray image into one of the 2 classes, COVID-19 or non-COVID-19 pneumonia"
+            "Classify the provided x ray image as one of the following: COVID-19 or non-COVID-19 pneumonia. The output must be either COVID-19 or non-COVID-19 pneumonia based on the image features."
     )
         response = self.generate(paths, prompt)
         return response
 
     def medical_question(self, question):
         assert isinstance(question, str)
-        prompt = f'Answer my question detailedly: {question}'
+        prompt = f'Answer the following question as detailed as possible: {question}'
         response = self.generate([], prompt)
         return response
